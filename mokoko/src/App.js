@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import Calories from './Calories'
+import {foodDB} from './foodDB';
+
+const foodArray = foodDB;
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      apiData: [],
-      calories: 0,
+      globalFoodArray: foodArray,
+      calories: null,
       caloriesLeft: null,
     }
 
     this.handleInputCaloriesSubmit = this.handleInputCaloriesSubmit.bind(this);
-    this.caloriesInput = React.createRef();
+    this.caloriesInput = React.createRef(); //For binding with the textInput
   }
 
   handleInputCaloriesSubmit = event => {
