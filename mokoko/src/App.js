@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Calories from './Calories'
+import {foodDB} from './foodDB';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const foodArray = foodDB;
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      globalFoodArray: foodArray,
+      calories: null,
+      caloriesLeft: null,
+    }
+
+    this.handleInputCaloriesSubmit = this.handleInputCaloriesSubmit.bind(this);
+    this.caloriesInput = React.createRef(); //For binding with the textInput
+  }
+
+  handleInputCaloriesSubmit = event => {
+    event.preventDefault();
+    this.setCalories(this.caloriesInput.current.value);
+  }
+
+  setCalories(cal) {
+    this.setState({ calories: cal })
+  }
+
+  render() {
+    return(  
+      <div className="App">
+        <Calories 
+          calories={this.state.calories} 
+          handleSubmit={this.handleInputCaloriesSubmit}
+          caloriesInput={this.caloriesInput}/>
+      </div>
+    );
+  }
 }
 
 export default App;
