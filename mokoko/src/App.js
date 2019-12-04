@@ -18,7 +18,7 @@ class App extends Component {
 
   handleInputCaloriesSubmit = event => {
     event.preventDefault();
-    this.caloriesInputsetCalories(this.caloriesInput.current.value);
+    this.setCalories(this.caloriesInput.current.value);
   }
 
   setCalories(cal) {
@@ -32,8 +32,6 @@ class App extends Component {
           calories={this.state.calories} 
           handleSubmit={this.handleInputCaloriesSubmit}
           caloriesInput={this.caloriesInput}/>
-        
-        
       </div>
     );
   }
