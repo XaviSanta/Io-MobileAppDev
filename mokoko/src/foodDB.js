@@ -12,11 +12,97 @@ export const foodDB =[
     // an array of labels describing this food. Used so we don't give people cereal for dinner. See below for an example of how to use this
     labels: ["breakfast", "fruit"],
   },
+
   {
-    name: "Example",
-    calories: 123,
+    name: "Example01",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["breakfast", "meat"],
+  },
+  {
+    name: "Example02",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["breakfast", "meat"],
+  },
+  {
+    name: "Example03",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["breakfast", "meat"],
+  },
+  {
+    name: "Example04",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["breakfast", "meat"],
+  },
+  {
+    name: "Example05",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["breakfast", "meat"],
+  },
+  
+  {
+    name: "Example1",
+    calories: 100,
     image: "asdf.png",
     labels: ["lunch", "meat"],
+  },
+  {
+    name: "Example2",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["lunch", "meat"],
+  },
+  {
+    name: "Example3",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["lunch", "meat"],
+  },
+  {
+    name: "Example4",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["lunch", "meat"],
+  },
+  {
+    name: "Example5",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["lunch", "meat"],
+  },
+  {
+    name: "Example11",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["dinner", "meat"],
+  },
+  {
+    name: "Example12",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["dinner", "meat"],
+  },
+  {
+    name: "Example13",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["dinner", "meat"],
+  },
+  {
+    name: "Example14",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["dinner", "meat"],
+  },
+  {
+    name: "Example15",
+    calories: 100,
+    image: "asdf.png",
+    labels: ["dinner", "meat"],
   },
   //...
 ]

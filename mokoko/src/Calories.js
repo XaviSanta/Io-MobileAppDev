@@ -11,19 +11,18 @@ class Calories extends Component {
 
     return (
       <div className="App">
-        <div class="d-block p-2 bg-secondary text-white">Calories: {localCalories}
-        <form class="form-inline" onSubmit={submitHandler}>
-          <div class="form-group ml-4 mb-2 mt-2">
-            <label class="sr-only" for="caloriesInput"></label>
+        <div className="d-block p-2 bg-secondary text-white">Calories: {localCalories}
+        <form className="form-inline" onSubmit={submitHandler}>
+          <div className="form-group ml-4 mb-2 mt-2">
             <input
               type="number"
-              class="form-control"
+              className="form-control mb-2"
               id="caloriesInput"
               placeholder="Enter calories"
               ref={caloriesInput}
             >
             </input>
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <button type="submit" className="btn btn-dark">Submit</button>
           </div>
           
         </form>
