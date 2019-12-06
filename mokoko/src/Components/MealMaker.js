@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Button from 'react-bootstrap/Button';
 
 class MealMaker extends Component {
 
@@ -11,11 +12,10 @@ class MealMaker extends Component {
 
     return(
       <div className="MealMaker"  style={{backgroundColor: "#AAA523"}}>
-        <button 
-          className="btn btn-primary" 
+        <Button 
           onClick={generateDayMeal}>
             Generate Meal
-        </button>
+        </Button>
 
         <div style={{backgroundColor: "#BBBAAA"}}>
           Breakfast
