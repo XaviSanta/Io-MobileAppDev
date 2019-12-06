@@ -1,68 +1,48 @@
+import React, { Component } from "react";
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
-import React, { Component } from 'react';
-import '.src/css/css';
-
-class WaterMeter extends React.Component
-{
-
-	constructor(props) {
-		super(props);
-		this.water = 0;
-		this.recommended = 2000;
+class WaterMeter extends Component {
+  constructor(props) {
+    super(props);
+	this.state = {
+		water: 0,
+		recommended: 2000
 	}
+  }
 
-
-	addWater(x)
-	{
-		var a=this.water+x;
-		this.setState({water:a});
-
+  addWater(amount) {
+    let newWater = this.state.water + amount;
+    this.setState({ water: newWater });
+  }
+  dropWater(amount) {
+	let newWater = this.state.water - amount;
+	if (newWater < 0) {
+		newWater = 0;
 	}
-	dropWater(y)
-	{
-		var b=this.water-y;
-		this.setState({water: b});
-	}
+	this.setState({ water: newWater });
+  }
 
+  render() {
 
+	const waterPercentage = (this.state.water / this.state.recommended) * 100;
+    return (
+      <div className="App">
+        <h1>Water Meter</h1>
 
-
-	render()
-	{
-
-  return (
-
-
-
-    <div className="App">
-      <header className="Water Meter">
-
-      </header>
-
-			<div class="radial-progress" data-progress={this.water / this.recommended}>
-				<div class="circle">
-					<div class="mask full">
-						<div class="fill"></div>
-					</div>
-					<div class="mask half">
-						<div class="fill"></div>
-						<div class="fill fix"></div>
-					</div>
-					<div class="shadow"></div>
-				</div>
-				<div class="inset">
-					<div class="percentage">
-  						<p>{this.water / this.recommended}</p>
-					</div>
-				</div>
+        <div className="container">
+          <div className="row">
+			<div className="col-4 offset-4">
+				<CircularProgressbar value={waterPercentage.toFixed(0)} text={`${waterPercentage.toFixed(0)}%`} />
 			</div>
-	  <button onclick={() => this.addWater(100)}>Add</button>
-	  <button onclick={() => this.dropWater(100)}>drop</button>
+          </div>
+        </div>
 
-    </div>
-  );
-
-	}
+        <button onClick={() => this.addWater(100)}>Add</button>
+        <button onClick={() => this.dropWater(100)}>drop</button>
+      </div>
+    );
+  }
 }
 
 export default WaterMeter;

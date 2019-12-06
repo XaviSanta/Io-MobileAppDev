@@ -78,8 +78,6 @@ class App extends Component {
   render() {
     return( 
       <div className="App">
-        <WaterMeter />
-
         <Calories 
           calories={this.state.calories} 
           handleSubmit={this.handleInputCaloriesSubmit}
