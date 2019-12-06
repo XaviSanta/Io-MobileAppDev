@@ -3,6 +3,7 @@ import './App.css';
 import Calories from './Calories'
 import MealMaker from './MealMaker'
 import {foodDB} from './foodDB';
+import WaterMeter from './watermeter';
 
 const foodArray = foodDB;
 
@@ -75,8 +76,10 @@ class App extends Component {
   }
 
   render() {
-    return(  
+    return( 
       <div className="App">
+        <WaterMeter />
+
         <Calories 
           calories={this.state.calories} 
           handleSubmit={this.handleInputCaloriesSubmit}

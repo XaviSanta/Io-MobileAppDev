@@ -1,17 +1,14 @@
 
 import React, { Component } from 'react';
 import '.src/css/css';
-import '.src/css/html';
 
-import './App.css';
-
-class  App extends React.Component
+class WaterMeter extends React.Component
 {
 
 	constructor(props) {
 		super(props);
 		this.water = 0;
-
+		this.recommended = 2000;
 	}
 
 
@@ -42,7 +39,7 @@ class  App extends React.Component
 
       </header>
 
-			<div class="radial-progress" data-progress="0">
+			<div class="radial-progress" data-progress={this.water / this.recommended}>
 				<div class="circle">
 					<div class="mask full">
 						<div class="fill"></div>
@@ -55,7 +52,8 @@ class  App extends React.Component
 				</div>
 				<div class="inset">
 					<div class="percentage">
-
+  						<p>{this.water / this.recommended}</p>
+					</div>
 				</div>
 			</div>
 	  <button onclick={() => this.addWater(100)}>Add</button>
@@ -67,4 +65,4 @@ class  App extends React.Component
 	}
 }
 
-export default App;
+export default WaterMeter;
