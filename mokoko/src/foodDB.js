@@ -104,5 +104,26 @@ export const foodDB =[
     image: "asdf.png",
     labels: ["dinner", "meat"],
   },
+  
+  {
+    name: "Air",
+    calories: 1,
+    image: "asdf.png",
+    labels: ["dinner", "meat"],
+  },
+  
+  {
+    name: "CO2",
+    calories: 1,
+    image: "asdf.png",
+    labels: ["breakfast", "meat"],
+  },
+  
+  {
+    name: "O2",
+    calories: 1,
+    image: "asdf.png",
+    labels: ["lunch", "meat"],
+  },
   //...
 ]

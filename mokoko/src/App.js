@@ -40,6 +40,7 @@ class App extends Component {
       alert('Enter calories');
     }
     else { //TODO: refactor this shit 
+      this.clearMeals();
       this.setState({caloriesLeft: this.state.calories}, function() {
         this.setState({breakfast: this.generateMeal('breakfast')}, function() {
           this.setState({lunch: this.generateMeal('lunch')}, function() {
@@ -50,21 +51,27 @@ class App extends Component {
     }
   }
   
+  clearMeals() {
+    this.setState({breakfast: [], lunch: [], dinner: []});
+  }
+
   // argument: 'breakfast','lunch','dinner'
   generateMeal(meal) { 
     let generatedMeal = [];
-    let mealFood = this.state.globalFoodArray.filter(item => item.labels.includes(meal));
+    const mealFood = this.state.globalFoodArray.filter(item => item.labels.includes(meal));
 
     let localCaloriesLeft = this.state.caloriesLeft;
+    let count = 0;
     do {
       let randomItem = mealFood[Math.floor(Math.random() * mealFood.length)];
 
       // Add food to the meal
-      if (randomItem.calories < localCaloriesLeft && !generatedMeal.includes(randomItem)) {
+      if (randomItem.calories < localCaloriesLeft && !this.isItemInMeals(randomItem, generatedMeal)) {
         generatedMeal.push(randomItem); 
         localCaloriesLeft -= randomItem.calories;    
       }
-    } while (generatedMeal.length < 3); // TODO: error handling if not enough calories
+      
+    } while (generatedMeal.length < 3 && count++ < 1000); // TODO: error handling if not enough calories
 
     this.setState({caloriesLeft: localCaloriesLeft}, function() {
       console.log(localCaloriesLeft);
@@ -72,6 +79,13 @@ class App extends Component {
     });
 
     return generatedMeal;
+  }
+
+  isItemInMeals(randomItem, generatedMeal) {
+    return generatedMeal.includes(randomItem) ||
+      this.state.breakfast.includes(randomItem) || 
+      this.state.lunch.includes(randomItem) ||
+      this.state.dinner.includes(randomItem);
   }
 
   render() {
