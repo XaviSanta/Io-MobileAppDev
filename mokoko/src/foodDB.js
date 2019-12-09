@@ -1,3 +1,10 @@
+var b="breakfast";
+var l="lunch";
+var d="dinner";
+var c="carbonhydrate";
+var p="protein";
+var v="vitamin";
+var f="fruit";
 export const foodDB =[
   {
     // The name of the food
@@ -14,116 +21,133 @@ export const foodDB =[
   },
 
   {
-    name: "Example01",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["breakfast", "meat"],
+    name: " 1 Bagel",
+    calories: 140,
+    
+    labels: [b,l,d,c],
   },
   {
-    name: "Example02",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["breakfast", "meat"],
+    name: "3 Biscuit Digestive",
+    calories: 240,
+    
+    labels: [l,c],
   },
   {
-    name: "Example03",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["breakfast", "meat"],
+    name: "1 piece thick size bread wholemeal",
+    calories: 88,
+    
+    labels: ["breakfast",l,d,c],
   },
   {
-    name: "Example04",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["breakfast", "meat"],
+    name: "35 gr cornflakes",
+    calories:370 ,
+     
+    labels: ["breakfast",c],
   },
   {
-    name: "Example05",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["breakfast", "meat"],
-  },
-  
-  {
-    name: "Example1",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["lunch", "meat"],
+    name: "Macaroni (250gr)",
+    calories: 238,
+     
+    labels: [d,c],
   },
   {
-    name: "Example2",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["lunch", "meat"],
+    name: "50 gr Muesli",
+    calories: 195,
+    
+    labels: ["breakfast",c],
   },
   {
-    name: "Example3",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["lunch", "meat"],
+    name: " 250 gr noodles",
+    calories:175,
+   
+    labels: [d,c],
   },
   {
-    name: "Example4",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["lunch", "meat"],
+    name: "Boiled 300 gr potatoes",
+    calories: 210,
+     
+    labels: [l,c],
   },
   {
-    name: "Example5",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["lunch", "meat"],
+    name: "Roasted 300 gr Potatoes",
+    calories:420,
+     
+    labels: [l,d,c],
   },
   {
-    name: "Example11",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["dinner", "meat"],
+    name: "300 gr Rice",
+    calories: 420,
+     
+    labels: [d,c],
   },
   {
-    name: "Example12",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["dinner", "meat"],
+    name: "300 gr brown rice",
+    calories: 405,
+     
+    labels: [d,c],
   },
   {
-    name: "Example13",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["dinner", "meat"],
+    name: "3 peace rice cake",
+    calories:90 ,
+     
+    labels: [l,c],
+  },
+
+  {
+    name: "300 gr Spaghetti",
+    calories:303 ,
+     
+    labels: [l,d,c],
+  },
+
+  {
+    name: "100 gr Anchovies tinned",
+    calories: 300,
+    labels: [d,p],
   },
   {
-    name: "Example14",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["dinner", "meat"],
+    name: "200 gr(2 racher) fried bacon",
+    calories:250 ,
+    labels: [b,l,d,p],
   },
   {
-    name: "Example15",
-    calories: 100,
-    image: "asdf.png",
-    labels: ["dinner", "meat"],
+    name: "100 gr roasted beef",
+    calories: 300,
+    labels: [l,d,p],
   },
-  
   {
-    name: "Air",
-    calories: 1,
-    image: "asdf.png",
-    labels: ["dinner", "meat"],
+    name: "120 gr beef burgers",
+    calories: 300,
+    labels: [d,p],
   },
-  
   {
-    name: "CO2",
-    calories: 1,
-    image: "asdf.png",
-    labels: ["breakfast", "meat"],
+    name: "100 gr chicken ",
+    calories:200 ,
+    labels: [l,d,p],
   },
-  
   {
-    name: "O2",
-    calories: 1,
-    image: "asdf.png",
-    labels: ["lunch", "meat"],
+    name: "100 gr Cockles",
+    calories: 50,
+    labels: [d,p],
   },
+  {
+    name: "150 gr Cod fresh",
+    calories: 150,
+    labels: [d,p],
+  },
+  {
+    name: "200 gr Fresh Crab",
+    calories:220 ,
+    labels: [d,p],
+  },
+  {
+    name: "1 portion Duck Roast",
+    calories:400 ,
+    labels: [d,p],
+  },
+
+
+
+
   //...
 ]
