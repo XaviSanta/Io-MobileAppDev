@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Calories from '../Calories'
-import MealMaker from '../MealMaker'
+import Calories from '../Components/Calories'
+import MealMaker from '../Components/MealMaker'
 import { foodDB } from '../foodDB';
 
 const foodArray = foodDB;
