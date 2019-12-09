@@ -17,7 +17,7 @@ export const foodDB =[
     image: "apple-icon.png",
 
     // an array of labels describing this food. Used so we don't give people cereal for dinner. See below for an example of how to use this
-    labels: ["breakfast", "fruit"],
+    labels: [b, "fruit"],
   },
 
   {
@@ -36,13 +36,13 @@ export const foodDB =[
     name: "1 piece thick size bread wholemeal",
     calories: 88,
     
-    labels: ["breakfast",l,d,c],
+    labels: [b,l,d,c],
   },
   {
     name: "35 gr cornflakes",
     calories:370 ,
      
-    labels: ["breakfast",c],
+    labels: [b,c],
   },
   {
     name: "Macaroni (250gr)",
@@ -54,7 +54,7 @@ export const foodDB =[
     name: "50 gr Muesli",
     calories: 195,
     
-    labels: ["breakfast",c],
+    labels: [b,c],
   },
   {
     name: " 250 gr noodles",
