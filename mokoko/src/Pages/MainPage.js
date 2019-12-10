@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Calories from '../Components/Calories'
 import MealMaker from '../Components/MealMaker'
+import SimpleStorage/*, { clearStorage, resetParentState }*/ from "react-simple-storage";
 import { foodDB } from '../foodDB';
 
 const foodArray = foodDB;
@@ -75,6 +76,11 @@ export default class MainPage extends Component {
     render() {
         return (
             <div>
+                <SimpleStorage
+                parent={this}
+                prefix={ 'MainPage' }
+                />
+
                 <h1>Meal Maker</h1>
                 <Calories
                     calories={this.state.calories}
