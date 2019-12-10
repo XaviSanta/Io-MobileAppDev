@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
-//import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table'
 
 class MealMaker extends Component {
 
@@ -19,33 +20,60 @@ class MealMaker extends Component {
 
         <div style={{backgroundColor: "#BBBAAA"}}>
           Breakfast
-          <div>
+          <Table striped bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>Food</th>
+                <th>Calories</th>
+              </tr>
+            </thead>
+            <tbody>
             {breakfast.map((item, index) =>
-              <div key={index}>
-                <p>{item.name}, {item.calories} cal</p>
-              </div>
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.calories}</td>
+              </tr>
             )}
-          </div>
+            </tbody>
+          </Table>
         </div>
         <div style={{backgroundColor: "#CCCBBB"}}>
           Lunch
-          <div>
+          <Table striped bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>Food</th>
+                <th>Calories</th>
+              </tr>
+            </thead>
+            <tbody>
             {lunch.map((item, index) =>
-              <div key={index}>
-                <p>{item.name}, {item.calories} cal</p>
-              </div>
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.calories}</td>
+              </tr>
             )}
-          </div>
+            </tbody>
+          </Table>
         </div>
         <div style={{backgroundColor: "#DDDCCC"}}>
           Dinner
-          <div>
+          <Table striped bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>Food</th>
+                <th>Calories</th>
+              </tr>
+            </thead>
+            <tbody>
             {dinner.map((item, index) =>
-              <div key={index}>
-                <p>{item.name}, {item.calories} cal</p>
-              </div>
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.calories}</td>
+              </tr>
             )}
-          </div>
+            </tbody>
+          </Table>
         </div>
       </div>
     )
