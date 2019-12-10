@@ -4,32 +4,31 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
 import MainPage from './Pages/MainPage';
 import StatisticsPage from './Pages/StatisticsPage';
 import WaterMeterPage from './Pages/WaterMeterPage';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
 class App extends Component {
   render() {
     return (
+      
       <Router>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar.Brand href="/">Mokoko</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/">MealMaker</Nav.Link>
+              <Nav.Link href="/water">Water</Nav.Link>
+              <Nav.Link href="/stats">Stats</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
         <div className="App">
-
-          {/* Navigation - make me pretty */}
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-
-            <li>
-              <Link to="/water">Water Meter</Link>
-            </li>
-
-            <li>
-              <Link to="/stats">Statistics</Link>
-            </li>
-          </ul>
 
           {/*
             A <Switch> looks through its children <Route>s and
