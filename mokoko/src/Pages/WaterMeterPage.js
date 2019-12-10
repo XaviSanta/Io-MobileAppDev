@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WaterMeter from '../watermeter';
+import WaterMeter from '../Components/Watermeter';
 
 export default class WaterMeterPage extends Component {
     render() {
