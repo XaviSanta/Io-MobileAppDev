@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  // Link
+  Link
 } from "react-router-dom";
 import MainPage from './Pages/MainPage';
 import StatisticsPage from './Pages/StatisticsPage';
@@ -15,16 +15,16 @@ import Nav from 'react-bootstrap/Nav'
 class App extends Component {
   render() {
     return (
-      
+
       <Router>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Navbar.Brand href="/">Mokoko</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">MealMaker</Nav.Link>
-              <Nav.Link href="/water">Water</Nav.Link>
-              <Nav.Link href="/stats">Stats</Nav.Link>
+              <Link className="nav-link" to="/">MealMaker</Link>
+              <Link className="nav-link" to="/water">Water</Link>
+              <Link className="nav-link" to="/stats">Stats</Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
