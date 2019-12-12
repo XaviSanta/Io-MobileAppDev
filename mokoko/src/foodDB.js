@@ -5,7 +5,7 @@ var c="carbonhydrate";
 var p="protein";
 var v="vitamin"; //vegetables also
 var f="fruit";
-var m="Dairy"
+var m="Dairy";
 export const foodDB =[
   {
     // The name of the food
@@ -299,7 +299,7 @@ export const foodDB =[
   {
     name: " 2 Cucumber with salt ",
     calories: 6,
-    labels: [b.l.d,v],
+    labels: [b,l,d,v],
   },
   {
     name: "5 pieces dates",
