@@ -52,6 +52,7 @@ export default class MainPage extends Component {
   // argument: 'breakfast','lunch','dinner'
   generateMeal(meal) {
     let generatedMeal = [];
+    let labelsGeneratedMeal = [];
     let mealFood = this.state.globalFoodArray.filter(item => item.labels.includes(meal));
 
     let localCaloriesLeft = this.state.caloriesLeft;
@@ -59,11 +60,18 @@ export default class MainPage extends Component {
       let randomItem = mealFood[Math.floor(Math.random() * mealFood.length)];
 
       // Add food to the meal
-      if (randomItem.calories < localCaloriesLeft && !generatedMeal.includes(randomItem)) {
+      if (this.isSituableForMeal(randomItem, labelsGeneratedMeal, localCaloriesLeft, generatedMeal)) {
         generatedMeal.push(randomItem);
         localCaloriesLeft -= randomItem.calories;
+        labelsGeneratedMeal = labelsGeneratedMeal.concat(randomItem.labels)
+            .filter(f => !["breakfast", "lunch", "dinner"].includes(f));
+        console.log(labelsGeneratedMeal);
       }
-    } while (generatedMeal.length < 3); // TODO: error handling if not enough calories
+      
+      mealFood.pop(randomItem);
+      mealFood = mealFood.filter(f => f.calories < localCaloriesLeft);
+      
+    } while (generatedMeal.length < 3 && mealFood.length > 0);
 
     this.setState({ caloriesLeft: localCaloriesLeft }, function () {
       console.log(localCaloriesLeft);
@@ -73,6 +81,26 @@ export default class MainPage extends Component {
     return generatedMeal;
   }
 
+  isSituableForMeal(randomItem, labelsGeneratedMeal, localCaloriesLeft, generatedMeal) {
+    let isSituable = true;
+    randomItem.labels.forEach(l => {
+      if(labelsGeneratedMeal.includes(l)){
+        isSituable = false;
+      }
+    });
+    
+    let isInOtherMeals = 
+      this.state.breakfast.includes(randomItem) || 
+      this.state.lunch.includes(randomItem) || 
+      this.state.lunch.includes(randomItem) 
+      ? false : false;
+
+    return randomItem.calories < localCaloriesLeft && 
+      !generatedMeal.includes(randomItem) && 
+      isSituable &&
+      !isInOtherMeals;
+  }
+  
   render() {
     return (
       <div>
