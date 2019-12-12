@@ -3,8 +3,8 @@ var l="lunch";
 var d="dinner";
 var c="carbonhydrate";
 var p="protein";
-var v="vitamin"; //vegetables also
-var f="fruit";
+var v="vegetables"; //fruits also
+ 
 var m="Dairy";
 export const foodDB =[
   {
@@ -169,7 +169,7 @@ export const foodDB =[
   {
     name: " 10 slice Ham",
     calories:60,
-    labels: [,p],
+    labels: [b,l,p],
   },
   {
     name: " 100 gr Liver ",
@@ -214,7 +214,7 @@ export const foodDB =[
   {
     name: " 100 gr sausage roll",
     calories:480 ,
-    labels: [,p],
+    labels: [b,l,d,p],
   },
   {
     name: "120 gr Steak  & Kidney Pie ",
