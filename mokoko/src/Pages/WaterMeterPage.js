@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SimpleStorage from 'react-simple-storage';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -16,7 +15,7 @@ export default class WaterMeterPage extends Component {
     let newWater = this.state.water + amount;
     this.setState({ water: newWater });
   }
-  
+
   dropWater(amount) {
     let newWater = this.state.water - amount;
     if (newWater < 0) {
@@ -26,15 +25,10 @@ export default class WaterMeterPage extends Component {
   }
   render() {
     const waterPercentage = (this.state.water / this.state.recommended) * 100;
-    
+
     return (
       <div className="WaterMeterPage">
 
-        <SimpleStorage
-          parent={this}
-          prefix={ 'WaterMeterPage' }
-          // blacklist={ ['password'] }
-        />
 
         <div className="container">
           <div className="row">

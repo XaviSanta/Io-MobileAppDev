@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Calories from '../Components/Calories'
 import MealMaker from '../Components/MealMaker'
-import SimpleStorage/*, { clearStorage, resetParentState }*/ from "react-simple-storage";
+import DBManager from '../Components/DatabaseManagement'
+//import SimpleStorage/*, { clearStorage, resetParentState }*/ from "react-simple-storage";
 import { foodDB } from '../foodDB';
 
 const foodArray = foodDB;
@@ -38,7 +39,7 @@ export default class MainPage extends Component {
     if (!this.state.calories) { // If there is no calories we cannot generate the meal
       alert('Enter calories');
     }
-    else { //TODO: refactor this shit 
+    else { //TODO: refactor this shit
       this.setState({ caloriesLeft: this.state.calories }, function () {
         this.setState({ breakfast: this.generateMeal('breakfast') }, function () {
           this.setState({ lunch: this.generateMeal('lunch') }, function () {
@@ -76,11 +77,6 @@ export default class MainPage extends Component {
   render() {
     return (
       <div>
-        <SimpleStorage
-        parent={this}
-        prefix={ 'MainPage' }
-        />
-
         <h1>Meal Maker</h1>
         <Calories
           calories={this.state.calories}
@@ -94,6 +90,8 @@ export default class MainPage extends Component {
           lunch={this.state.lunch}
           dinner={this.state.dinner}
         />
+
+        <DBManager/>
       </div>
     )
   }
