@@ -53,7 +53,7 @@ export default class MainPage extends Component {
   generateMeal(meal, calorieLimit) {
     let generatedMeal = [];
     let labelsGeneratedMeal = [];
-    let localCaloriesLeft = this.state.calories * (calorieLimit/100) + this.state.calories*.05;
+    let localCaloriesLeft = this.getCaloriesLeft(calorieLimit);
 
     let mealFood = this.state.globalFoodArray.filter(f => f.labels.includes(meal));
     
@@ -78,6 +78,10 @@ export default class MainPage extends Component {
     this.updateCaloriesLeft(generatedMeal, localCaloriesLeft);
 
     return generatedMeal;
+  }
+
+  getRandomObjectFromList(calorieLimit) {
+    return this.state.calories * (calorieLimit/100) + this.state.calories*.05;
   }
 
   getRandomObjectFromList(mealFood) {
