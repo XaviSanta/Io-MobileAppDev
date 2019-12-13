@@ -40,9 +40,9 @@ export default class MainPage extends Component {
     }
     else { //TODO: refactor this shit 
       this.setState({ caloriesLeft: this.state.calories }, function () {
-        this.setState({ breakfast: this.generateMeal('breakfast') }, function () {
-          this.setState({ lunch: this.generateMeal('lunch') }, function () {
-            this.setState({ dinner: this.generateMeal('dinner') });
+        this.setState({ breakfast: this.generateMeal('breakfast', 20) }, function () {
+          this.setState({ lunch: this.generateMeal('lunch', 40) }, function () {
+            this.setState({ dinner: this.generateMeal('dinner', 40) });
           });
         });
       });
@@ -50,30 +50,36 @@ export default class MainPage extends Component {
   }
 
   // argument: 'breakfast','lunch','dinner'
-  generateMeal(meal) {
+  generateMeal(meal, calorieLimit) {
     let generatedMeal = [];
     let labelsGeneratedMeal = [];
-    let mealFood = this.state.globalFoodArray.filter(item => item.labels.includes(meal));
+    let localCaloriesLeft = this.state.calories * (calorieLimit/100) + this.state.calories*.08;
 
-    let localCaloriesLeft = this.state.caloriesLeft;
-    do {
+    console.log("C" + localCaloriesLeft);
+    let mealFood = this.state.globalFoodArray
+        .filter(f => f.labels.includes(meal));
+    
+    while (mealFood.length > 0) {
+      mealFood = mealFood.filter(f => f.calories < localCaloriesLeft);
+      if (mealFood.length < 1) break;
       let randomItem = mealFood[Math.floor(Math.random() * mealFood.length)];
-
+      
       // Add food to the meal
       if (this.isSituableForMeal(randomItem, labelsGeneratedMeal, localCaloriesLeft, generatedMeal)) {
         generatedMeal.push(randomItem);
         localCaloriesLeft -= randomItem.calories;
         labelsGeneratedMeal = labelsGeneratedMeal.concat(randomItem.labels)
-            .filter(f => !["breakfast", "lunch", "dinner"].includes(f));
+          .filter(f => !["breakfast", "lunch", "dinner"].includes(f));
         console.log(labelsGeneratedMeal);
       }
       
       mealFood.pop(randomItem);
-      mealFood = mealFood.filter(f => f.calories < localCaloriesLeft);
-      
-    } while (generatedMeal.length < 3 && mealFood.length > 0);
-
-    this.setState({ caloriesLeft: localCaloriesLeft }, function () {
+    } 
+    
+    let totalCal = generatedMeal.reduce((acc, item) => {
+      return acc += item.calories;
+    }, 0)
+    this.setState({ caloriesLeft: this.state.caloriesLeft - totalCal }, function () {
       console.log(localCaloriesLeft);
       console.log(this.state.caloriesLeft);
     });
@@ -82,23 +88,23 @@ export default class MainPage extends Component {
   }
 
   isSituableForMeal(randomItem, labelsGeneratedMeal, localCaloriesLeft, generatedMeal) {
-    let isSituable = true;
-    randomItem.labels.forEach(l => {
-      if(labelsGeneratedMeal.includes(l)){
-        isSituable = false;
-      }
-    });
+    // let isSituable = true;
+    // randomItem.labels.forEach(l => {
+    //   if(labelsGeneratedMeal.includes(l)){
+    //     isSituable = false;
+    //   }
+    // });
     
-    let isInOtherMeals = 
-      this.state.breakfast.includes(randomItem) || 
-      this.state.lunch.includes(randomItem) || 
-      this.state.lunch.includes(randomItem) 
-      ? false : false;
+    // let isInOtherMeals = 
+    //   this.state.breakfast.includes(randomItem) || 
+    //   this.state.lunch.includes(randomItem) || 
+    //   this.state.lunch.includes(randomItem) 
+    //   ? false : false;
 
     return randomItem.calories < localCaloriesLeft && 
-      !generatedMeal.includes(randomItem) && 
-      isSituable &&
-      !isInOtherMeals;
+      !generatedMeal.includes(randomItem);// && 
+      //isSituable;
+      // && !isInOtherMeals;
   }
   
   render() {
@@ -109,6 +115,7 @@ export default class MainPage extends Component {
         prefix={ 'MainPage' }
         />
 
+
         <h1>Meal Maker</h1>
         <Calories
           calories={this.state.calories}
@@ -116,12 +123,21 @@ export default class MainPage extends Component {
           caloriesInput={this.caloriesInput}
         />
 
+        <div>
+          Total Cal:
+          {this.state.lunch.concat(this.state.breakfast, this.state.dinner)
+            .reduce((acc, item) => {
+              return acc += item.calories;
+            }, 0)}
+        </div>
+        
         <MealMaker
           generateDayMeal={this.generateDayMeal}
           breakfast={this.state.breakfast}
           lunch={this.state.lunch}
           dinner={this.state.dinner}
         />
+
       </div>
     )
   }
