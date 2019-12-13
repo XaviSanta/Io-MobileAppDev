@@ -79,8 +79,8 @@ export default class MainPage extends Component {
 
     return generatedMeal;
   }
-
-  getRandomObjectFromList(calorieLimit) {
+  
+  getCaloriesLeft(calorieLimit) {
     return this.state.calories * (calorieLimit/100) + this.state.calories*.05;
   }
 
