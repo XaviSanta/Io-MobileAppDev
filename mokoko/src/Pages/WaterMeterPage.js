@@ -48,7 +48,7 @@ export default class WaterMeterPage extends Component {
           <Row>
             <Col xs={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
               <CircularProgressbarWithChildren value={waterPercentage.toFixed(0)}>
-                <h2 class="font-weight-bold" style={{ color: COLOR_WATER, fontSize: '10vw' }}>
+                <h2 className="font-weight-bold" style={{ color: COLOR_WATER, fontSize: '10vw' }}>
                   {waterPercentage.toFixed(0)}%
                 </h2>
                 <div style={{ color: COLOR_WATER }}>
