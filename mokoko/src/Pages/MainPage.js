@@ -20,7 +20,7 @@ export default class MainPage extends Component {
 
     this.handleInputCaloriesSubmit = this.handleInputCaloriesSubmit.bind(this);
     this.generateDayMeal = this.generateDayMeal.bind(this);
-    this.generateSingleMeal = this.generateSingleMeal.bind(this);
+    this.generateMeal = this.generateMeal.bind(this);
     this.caloriesInput = React.createRef(); //For binding with the textInput
   }
 
@@ -38,16 +38,19 @@ export default class MainPage extends Component {
     if (!this.state.calories) { // If there is no calories we cannot generate the meal
       alert('Enter calories');
     }
-    else {
-      this.setState({ caloriesLeft: this.state.calories });
-      this.generateSingleMeal('breakfast', 20);
-      this.generateSingleMeal('lunch', 35);
-      this.generateSingleMeal('dinner', 45);
+    else { //TODO: refactor this shit 
+      this.setState({ caloriesLeft: this.state.calories }, function () {
+        this.setState({ breakfast: this.generateMeal('breakfast', 20) }, function () {
+          this.setState({ lunch: this.generateMeal('lunch', 35) }, function () {
+            this.setState({ dinner: this.generateMeal('dinner', 45) });
+          });
+        });
+      });
     }
   }
 
   // argument: 'breakfast','lunch','dinner'
-  generateSingleMeal(meal, calorieLimit) {
+  generateMeal(meal, calorieLimit) {
     let generatedMeal = [];
     let labelsGeneratedMeal = [];
     let localCaloriesLeft = this.getCaloriesLeft(calorieLimit);
@@ -70,7 +73,7 @@ export default class MainPage extends Component {
     
     this.updateCaloriesLeft(generatedMeal, localCaloriesLeft);
 
-    this.setState({ [meal]: generatedMeal }); // Dynamic key [name]
+    return generatedMeal;
   }
   
   getCaloriesLeft(calorieLimit) {
@@ -90,6 +93,11 @@ export default class MainPage extends Component {
     const totalCal = generatedMeal.reduce((acc, item) => {
       return acc += item.calories;
     }, 0);
+
+    this.setState({ caloriesLeft: this.state.caloriesLeft - totalCal }, function () {
+      console.log(localCaloriesLeft);
+      console.log(this.state.caloriesLeft);
+    });
   }
 
   render() {
