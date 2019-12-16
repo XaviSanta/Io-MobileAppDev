@@ -38,14 +38,11 @@ export default class MainPage extends Component {
     if (!this.state.calories) { // If there is no calories we cannot generate the meal
       alert('Enter calories');
     }
-    else { //TODO: refactor this shit 
-      this.setState({ caloriesLeft: this.state.calories }, function () {
-        this.setState({ breakfast: this.generateMeal('breakfast', 20) }, function () {
-          this.setState({ lunch: this.generateMeal('lunch', 35) }, function () {
-            this.setState({ dinner: this.generateMeal('dinner', 45) });
-          });
-        });
-      });
+    else {
+      this.setState({ caloriesLeft: this.state.calories });
+      this.generateMeal('breakfast', 20);
+      this.generateMeal('lunch', 35);
+      this.generateMeal('dinner', 45);
     }
   }
 
@@ -71,9 +68,7 @@ export default class MainPage extends Component {
       mealFood.pop(randomItem);
     } 
     
-    this.updateCaloriesLeft(generatedMeal, localCaloriesLeft);
-
-    return generatedMeal;
+    this.setState({ [meal]: generatedMeal }); // Dynamic key [meal] = breakfast
   }
   
   getCaloriesLeft(calorieLimit) {
@@ -94,10 +89,7 @@ export default class MainPage extends Component {
       return acc += item.calories;
     }, 0);
 
-    this.setState({ caloriesLeft: this.state.caloriesLeft - totalCal }, function () {
-      console.log(localCaloriesLeft);
-      console.log(this.state.caloriesLeft);
-    });
+    this.setState({ caloriesLeft: this.state.caloriesLeft - totalCal });
   }
 
   render() {
