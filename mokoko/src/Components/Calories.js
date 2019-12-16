@@ -17,10 +17,10 @@ class Calories extends Component {
         <h3>Calories: {localCalories}</h3>
 
         <Form>
-          <Form.Row>
-            <Col md={{ span: 6, offset: 3}}>
+          <Form.Row className="px-2">
+            <Col xs={{ span: 12 }} lg={{ span: 6, offset: 3}}>
               <Form.Control type="number" placeholder="Enter Calories" ref={caloriesInput} />
-              <Button type="submit" onClick={submitHandler}>Submit</Button>
+              <Button className="my-2" type="submit" onClick={submitHandler}>Submit</Button>
             </Col>
           </Form.Row>
         </Form>
