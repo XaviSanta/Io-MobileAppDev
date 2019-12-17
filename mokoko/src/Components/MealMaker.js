@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
+import '../../node_modules/font-awesome/css/font-awesome.min.css';
 
 class MealMaker extends Component {
 
   render() {
     const generateDayMeal = this.props.generateDayMeal;
+    const generateMeal = this.props.generateMeal;
     const breakfast = this.props.breakfast;
     const lunch = this.props.lunch;
     const dinner = this.props.dinner;
@@ -18,9 +20,13 @@ class MealMaker extends Component {
           onClick={generateDayMeal}>
             Generate Meal
         </Button>
-
         <div style={{backgroundColor: "#BBBAAA"}}>
-          Breakfast
+          Breakfast&nbsp;&nbsp;
+          <Button
+            className="my-2 btn-sm" 
+            onClick={() => generateMeal('breakfast', 20)}>
+              <i className="fa fa-refresh"></i>
+          </Button>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
@@ -39,7 +45,12 @@ class MealMaker extends Component {
           </Table>
         </div>
         <div style={{backgroundColor: "#CCCBBB"}}>
-          Lunch
+          Lunch&nbsp;&nbsp;
+          <Button
+            className="my-2 btn-sm" 
+            onClick={() => generateMeal('lunch', 35)}>
+              <i className="fa fa-refresh"></i>
+          </Button>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
@@ -58,7 +69,13 @@ class MealMaker extends Component {
           </Table>
         </div>
         <div style={{backgroundColor: "#DDDCCC"}}>
-          Dinner
+          Dinner&nbsp;&nbsp;
+          <i className="fas fa-redo-alt"></i>
+          <Button
+            className="my-2 btn-sm" 
+            onClick={() => generateMeal('dinner', 45)}>
+              <i className="fa fa-refresh"></i>
+          </Button>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>

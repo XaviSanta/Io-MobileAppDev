@@ -118,6 +118,7 @@ export default class MainPage extends Component {
         
         <MealMaker
           generateDayMeal={this.generateDayMeal}
+          generateMeal={this.generateMeal}
           breakfast={this.state.breakfast}
           lunch={this.state.lunch}
           dinner={this.state.dinner}
