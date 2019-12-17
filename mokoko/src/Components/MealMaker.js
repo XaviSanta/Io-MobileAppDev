@@ -14,19 +14,22 @@ class MealMaker extends Component {
     const dinner = this.props.dinner;
 
     return(
-      <div className="MealMaker"  style={{backgroundColor: "#AAA523"}}>
+      <div className="MealMaker"  style={{backgroundColor: "#ffffff"}}>
         <Button
           className="my-2 btn-sm" 
           onClick={generateDayMeal}>
             Generate Meal
         </Button>
-        <div style={{backgroundColor: "#BBBAAA"}}>
-          Breakfast&nbsp;&nbsp;
-          <button
-            className="my-2 btn-sm" 
-            onClick={() => generateMeal('breakfast', 20)}>
-              <i className="fa fa-refresh"></i>
-          </button>
+        <div style={{backgroundColor: "#f6da63"}}>
+          <div style={{backgroundColor: "#eb8242"}}>
+            <b>Breakfast&nbsp;&nbsp;</b>
+            <button
+              style={{backgroundColor: "#f6da63"}}
+              className="my-2 btn-sm" 
+              onClick={() => generateMeal('breakfast', 20)}>
+                <i className="fa fa-refresh"></i>
+            </button>
+          </div>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
@@ -44,13 +47,16 @@ class MealMaker extends Component {
             </tbody>
           </Table>
         </div>
-        <div style={{backgroundColor: "#CCCBBB"}}>
-          Lunch&nbsp;&nbsp;
-          <button
-            className="my-2 btn-sm" 
-            onClick={() => generateMeal('lunch', 35)}>
-              <i className="fa fa-refresh"></i>
-          </button>
+        <div style={{backgroundColor: "#f6da63"}}>
+          <div style={{backgroundColor: "#eb8242"}}>
+            <b>Lunch&nbsp;&nbsp;</b>
+            <button
+              style={{backgroundColor: "#f6da63"}}
+              className="my-2 btn-sm" 
+              onClick={() => generateMeal('lunch', 35)}>
+                <i className="fa fa-refresh"></i>
+            </button>
+          </div>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
@@ -68,13 +74,16 @@ class MealMaker extends Component {
             </tbody>
           </Table>
         </div>
-        <div style={{backgroundColor: "#DDDCCC"}}>
-          Dinner&nbsp;&nbsp;
-          <button
-            className="my-2 btn-sm" 
-            onClick={() => generateMeal('dinner', 45)}>
-              <i className="fa fa-refresh"></i>
-          </button>
+        <div style={{backgroundColor: "#f6da63"}}>
+          <div style={{backgroundColor: "#eb8242"}}>
+            <b>Dinner&nbsp;&nbsp;</b>
+            <button
+              style={{backgroundColor: "#f6da63"}}
+              className="my-2 btn-sm" 
+              onClick={() => generateMeal('dinner', 45)}>
+                <i className="fa fa-refresh"></i>
+            </button>
+          </div>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
