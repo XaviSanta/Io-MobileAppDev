@@ -22,11 +22,11 @@ class MealMaker extends Component {
         </Button>
         <div style={{backgroundColor: "#BBBAAA"}}>
           Breakfast&nbsp;&nbsp;
-          <Button
+          <button
             className="my-2 btn-sm" 
             onClick={() => generateMeal('breakfast', 20)}>
               <i className="fa fa-refresh"></i>
-          </Button>
+          </button>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
@@ -46,11 +46,11 @@ class MealMaker extends Component {
         </div>
         <div style={{backgroundColor: "#CCCBBB"}}>
           Lunch&nbsp;&nbsp;
-          <Button
+          <button
             className="my-2 btn-sm" 
             onClick={() => generateMeal('lunch', 35)}>
               <i className="fa fa-refresh"></i>
-          </Button>
+          </button>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
@@ -70,12 +70,11 @@ class MealMaker extends Component {
         </div>
         <div style={{backgroundColor: "#DDDCCC"}}>
           Dinner&nbsp;&nbsp;
-          <i className="fas fa-redo-alt"></i>
-          <Button
+          <button
             className="my-2 btn-sm" 
             onClick={() => generateMeal('dinner', 45)}>
               <i className="fa fa-refresh"></i>
-          </Button>
+          </button>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
