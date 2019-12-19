@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import SimpleStorage from 'react-simple-storage';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren  } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+
+const COLOR_WATER = '#3e98c7';
 
 export default class WaterMeterPage extends Component {
   constructor(props) {
@@ -36,16 +41,26 @@ export default class WaterMeterPage extends Component {
           // blacklist={ ['password'] }
         />
 
+        <h1>Water Meter</h1>
+        <p>Track your daily water intake.</p>
+
         <div className="container">
-          <div className="row">
-          <div className="col-4 offset-4">
-            <CircularProgressbar value={waterPercentage.toFixed(0)} text={`${waterPercentage.toFixed(0)}%`} />
-          </div>
-          </div>
+          <Row>
+            <Col xs={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
+              <CircularProgressbarWithChildren value={waterPercentage.toFixed(0)}>
+                <h2 className="font-weight-bold" style={{ color: COLOR_WATER, fontSize: '10vw' }}>
+                  {waterPercentage.toFixed(0)}%
+                </h2>
+                <div style={{ color: COLOR_WATER }}>
+                  {this.state.water}ml / {this.state.recommended}ml
+                </div>
+              </CircularProgressbarWithChildren>
+            </Col>
+          </Row>
         </div>
 
-        <button onClick={() => this.addWater(100)}>Add</button>
-        <button onClick={() => this.dropWater(100)}>drop</button>
+        <Button className="m-1 py-1 px-2" onClick={() => this.addWater(100)}>Add</Button>
+        <Button className="m-1 py-1 px-2" onClick={() => this.dropWater(100)}>Drop</Button>
       </div>
     )
   }

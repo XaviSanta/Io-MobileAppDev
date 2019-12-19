@@ -18,7 +18,7 @@ class App extends Component {
 
       <Router>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Mokoko</Navbar.Brand>
+          <Navbar.Brand href="/">CalorieFood</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
