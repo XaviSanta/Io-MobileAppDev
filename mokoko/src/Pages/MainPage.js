@@ -22,6 +22,7 @@ export default class MainPage extends Component {
     this.generateDayMeal = this.generateDayMeal.bind(this);
     this.generateMeal = this.generateMeal.bind(this);
     this.caloriesInput = React.createRef(); //For binding with the textInput
+    this.eraseData = this.eraseData.bind(this); 
   }
 
   handleInputCaloriesSubmit = event => {
@@ -91,6 +92,10 @@ export default class MainPage extends Component {
     this.setState({ caloriesLeft: this.state.caloriesLeft - totalCal });
   }
 
+  eraseData() {
+    this.setState({breakfast: [], lunch: [], dinner: []});
+  }
+
   render() {
     return (
       <div>
@@ -106,7 +111,7 @@ export default class MainPage extends Component {
           handleSubmit={this.handleInputCaloriesSubmit}
           caloriesInput={this.caloriesInput}
         />
-
+        <button onClick={this.eraseData}>Erase</button>
         <div>
           Total Cal:
           {this.state.lunch.concat(this.state.breakfast, this.state.dinner)

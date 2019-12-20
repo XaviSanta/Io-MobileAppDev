@@ -15,6 +15,8 @@ export default class WaterMeterPage extends Component {
       water: 0,
       recommended: 2000
     }
+
+    this.eraseWater = this.eraseWater.bind(this);
   }
 
   addWater(amount) {
@@ -29,6 +31,11 @@ export default class WaterMeterPage extends Component {
 	  }
 	  this.setState({ water: newWater });
   }
+
+  eraseWater(){
+    this.setState({water: 0});
+  }
+
   render() {
     const waterPercentage = (this.state.water / this.state.recommended) * 100;
     
@@ -38,7 +45,6 @@ export default class WaterMeterPage extends Component {
         <SimpleStorage
           parent={this}
           prefix={ 'WaterMeterPage' }
-          // blacklist={ ['password'] }
         />
 
         <h1>Water Meter</h1>
@@ -61,6 +67,11 @@ export default class WaterMeterPage extends Component {
 
         <Button className="m-1 py-1 px-2" onClick={() => this.addWater(100)}>Add</Button>
         <Button className="m-1 py-1 px-2" onClick={() => this.dropWater(100)}>Drop</Button>
+        <div>
+          <Button onClick={this.eraseWater}>
+            <i className="fa fa-refresh"></i>
+          </Button>
+        </div>
       </div>
     )
   }
