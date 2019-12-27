@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import MainPage from './Pages/MainPage';
-import StatisticsPage from './Pages/StatisticsPage';
+import Settings from './Pages/Settings';
 import WaterMeterPage from './Pages/WaterMeterPage';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -18,7 +18,7 @@ class App extends Component {
 
       <Router>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Mokoko</Navbar.Brand>
+          <Navbar.Brand href="/">CalorieFood</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -43,7 +43,7 @@ class App extends Component {
               <WaterMeterPage />
             </Route>
             <Route exact path="/stats">
-              <StatisticsPage />
+              <Settings />
             </Route>
           </Switch>
         </div>

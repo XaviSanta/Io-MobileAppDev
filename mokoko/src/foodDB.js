@@ -24,6 +24,7 @@ export const foodDB =[
   {
     name: " 1 Bagel",
     calories: 140,
+    exclude: ['biscuit'],
     
     labels: [b,l,d,c],
   },
@@ -59,7 +60,7 @@ export const foodDB =[
   },
   {
     name: " 250 gr noodles",
-    calories:175,
+    calories:138,
    
     labels: [d,c],
   },
